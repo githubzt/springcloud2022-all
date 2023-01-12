@@ -6,7 +6,7 @@ import org.springframework.context.annotation.Configuration;
 import org.springframework.web.client.RestTemplate;
 
 /**
- * 1. @ClassDescription:
+ * 1. @ClassDescription: rest访问
  * 2. @author: ZhangTao
  * 3. @date: 2022年11月15日 17:15
  */

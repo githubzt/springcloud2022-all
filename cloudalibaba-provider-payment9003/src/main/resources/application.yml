@@ -1,0 +1,20 @@
+server:
+  port: 9003
+
+spring:
+  application:
+    name: nacos-payment-provider
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.205.129:8848 #配置nacos地址
+    sentinel:
+      transport:  # 配置sentinel dashboard 地址
+        dashboard: localhost:8080
+        port: 8719 # 默认8719端口，假如被占用从8719开始依次+1扫描 直至找到未被占用的端口
+
+management:
+  endpoints:
+    web:
+      exposure:
+        include: "*"

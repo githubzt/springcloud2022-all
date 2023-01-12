@@ -1,0 +1,33 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhangtao.springcloud.dao.FcAccountDao">
+  <resultMap id="BaseResultMap" type="com.zhangtao.springcloud.entities.FcAccount">
+    <!--@mbg.generated-->
+    <!--@Table fc_account-->
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="User_Id" jdbcType="VARCHAR" property="userId" />
+    <result column="Ac_Total" jdbcType="DECIMAL" property="acTotal" />
+    <result column="Ac_Used" jdbcType="DECIMAL" property="acUsed" />
+    <result column="Ac_Residue" jdbcType="DECIMAL" property="acResidue" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="Insert_Time_For_His" jdbcType="TIMESTAMP" property="insertTimeForHis" />
+    <result column="Operate_Time_For_His" jdbcType="TIMESTAMP" property="operateTimeForHis" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, User_Id, Ac_Total, Ac_Used, Ac_Residue, version, Insert_Time_For_His, Operate_Time_For_His
+  </sql>
+
+    <select id="selectByUserId" parameterType="java.lang.String" resultMap="BaseResultMap">
+        select <include refid="Base_Column_List" /> FROM fc_account where User_Id=#{userId}
+    </select>
+
+    <insert id="create" parameterType="com.zhangtao.springcloud.entities.FcAccount" useGeneratedKeys="true" keyProperty="id">
+        insert into fc_account (user_Id,Ac_Total,Ac_Used,Ac_Residue) values (#{userId},#{acTotal},#{acUsed},#{acResidue})
+    </insert>
+
+    <update id="updateUsed" parameterType="com.zhangtao.springcloud.entities.FcAccount">
+        update fc_account set Ac_Used=#{acUsed},Ac_Residue=#{acResidue} where user_Id = #{userId}
+    </update>
+
+</mapper>

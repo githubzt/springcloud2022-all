@@ -1,0 +1,295 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhangtao.springcloud.dao.FiOrderDao">
+  <resultMap id="BaseResultMap" type="com.zhangtao.springcloud.entities.FiOrder">
+    <!--@mbg.generated-->
+    <!--@Table fi_order-->
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="User_Id" jdbcType="VARCHAR" property="userId" />
+    <result column="Product_Id" jdbcType="VARCHAR" property="productId" />
+    <result column="Product_Name" jdbcType="VARCHAR" property="productName" />
+    <result column="Order_Count" jdbcType="INTEGER" property="orderCount" />
+    <result column="Order_Total_Price" jdbcType="DECIMAL" property="orderTotalPrice" />
+    <result column="Order_Status" jdbcType="INTEGER" property="orderStatus" />
+    <result column="Version" jdbcType="INTEGER" property="version" />
+    <result column="Insert_Time_For_This" jdbcType="TIMESTAMP" property="insertTimeForThis" />
+    <result column="Operate_Time_For_This" jdbcType="TIMESTAMP" property="operateTimeForThis" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, User_Id, Product_Id, Product_Name, Order_Count, Order_Total_Price, Order_Status,
+    Version, Insert_Time_For_This, Operate_Time_For_This
+  </sql>
+
+  <select id="selectByProductId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select <include refid="Base_Column_List" /> from fi_order where Product_Id = #{productId,jdbcType=VARCHAR}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from fi_order where Id = #{id,jdbcType=BIGINT}
+  </delete>
+
+  <insert id="create" keyColumn="Id" keyProperty="id" parameterType="com.zhangtao.springcloud.entities.FiOrder" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into fi_order (User_Id, Product_Id, Product_Name,Order_Count, Order_Total_Price, Order_Status)
+    values (#{userId,jdbcType=VARCHAR}, #{productId,jdbcType=VARCHAR}, #{productName,jdbcType=VARCHAR},
+      #{orderCount,jdbcType=INTEGER}, #{orderTotalPrice,jdbcType=DECIMAL}, #{orderStatus,jdbcType=INTEGER})
+  </insert>
+
+  <insert id="insertSelective" keyColumn="Id" keyProperty="id" parameterType="com.zhangtao.springcloud.entities.FiOrder" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into fi_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        User_Id,
+      </if>
+      <if test="productId != null">
+        Product_Id,
+      </if>
+      <if test="productName != null">
+        Product_Name,
+      </if>
+      <if test="orderCount != null">
+        Order_Count,
+      </if>
+      <if test="orderTotalPrice != null">
+        Order_Total_Price,
+      </if>
+      <if test="orderStatus != null">
+        Order_Status,
+      </if>
+      <if test="version != null">
+        Version,
+      </if>
+      <if test="insertTimeForThis != null">
+        Insert_Time_For_This,
+      </if>
+      <if test="operateTimeForThis != null">
+        Operate_Time_For_This,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCount != null">
+        #{orderCount,jdbcType=INTEGER},
+      </if>
+      <if test="orderTotalPrice != null">
+        #{orderTotalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderStatus != null">
+        #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="insertTimeForThis != null">
+        #{insertTimeForThis,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateTimeForThis != null">
+        #{operateTimeForThis,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhangtao.springcloud.entities.FiOrder">
+    <!--@mbg.generated-->
+    update fi_order
+    <set>
+      <if test="userId != null">
+        User_Id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null">
+        Product_Id = #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        Product_Name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCount != null">
+        Order_Count = #{orderCount,jdbcType=INTEGER},
+      </if>
+      <if test="orderTotalPrice != null">
+        Order_Total_Price = #{orderTotalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderStatus != null">
+        Order_Status = #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        Version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="insertTimeForThis != null">
+        Insert_Time_For_This = #{insertTimeForThis,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateTimeForThis != null">
+        Operate_Time_For_This = #{operateTimeForThis,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateOrder">
+    <!--@mbg.generated-->
+    update fi_order set Order_Status=1 where user_Id = #{userId} and Order_Status=#{orderStatus}
+  </update>
+
+
+  <insert id="insertOrUpdate" keyColumn="Id" keyProperty="id" parameterType="com.zhangtao.springcloud.entities.FiOrder" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into fi_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      User_Id,
+      Product_Id,
+      Product_Name,
+      Order_Count,
+      Order_Total_Price,
+      Order_Status,
+      Version,
+      Insert_Time_For_This,
+      Operate_Time_For_This,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{userId,jdbcType=VARCHAR},
+      #{productId,jdbcType=VARCHAR},
+      #{productName,jdbcType=VARCHAR},
+      #{orderCount,jdbcType=INTEGER},
+      #{orderTotalPrice,jdbcType=DECIMAL},
+      #{orderStatus,jdbcType=INTEGER},
+      #{version,jdbcType=INTEGER},
+      #{insertTimeForThis,jdbcType=TIMESTAMP},
+      #{operateTimeForThis,jdbcType=TIMESTAMP},
+    </trim>
+    on duplicate key update
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        Id = #{id,jdbcType=BIGINT},
+      </if>
+      User_Id = #{userId,jdbcType=VARCHAR},
+      Product_Id = #{productId,jdbcType=VARCHAR},
+      Product_Name = #{productName,jdbcType=VARCHAR},
+      Order_Count = #{orderCount,jdbcType=INTEGER},
+      Order_Total_Price = #{orderTotalPrice,jdbcType=DECIMAL},
+      Order_Status = #{orderStatus,jdbcType=INTEGER},
+      Version = #{version,jdbcType=INTEGER},
+      Insert_Time_For_This = #{insertTimeForThis,jdbcType=TIMESTAMP},
+      Operate_Time_For_This = #{operateTimeForThis,jdbcType=TIMESTAMP},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="Id" keyProperty="id" parameterType="com.zhangtao.springcloud.entities.FiOrder" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into fi_order
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="userId != null">
+        User_Id,
+      </if>
+      <if test="productId != null">
+        Product_Id,
+      </if>
+      <if test="productName != null">
+        Product_Name,
+      </if>
+      <if test="orderCount != null">
+        Order_Count,
+      </if>
+      <if test="orderTotalPrice != null">
+        Order_Total_Price,
+      </if>
+      <if test="orderStatus != null">
+        Order_Status,
+      </if>
+      <if test="version != null">
+        Version,
+      </if>
+      <if test="insertTimeForThis != null">
+        Insert_Time_For_This,
+      </if>
+      <if test="operateTimeForThis != null">
+        Operate_Time_For_This,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCount != null">
+        #{orderCount,jdbcType=INTEGER},
+      </if>
+      <if test="orderTotalPrice != null">
+        #{orderTotalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderStatus != null">
+        #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="insertTimeForThis != null">
+        #{insertTimeForThis,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateTimeForThis != null">
+        #{operateTimeForThis,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+    on duplicate key update
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        Id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        User_Id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="productId != null">
+        Product_Id = #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="productName != null">
+        Product_Name = #{productName,jdbcType=VARCHAR},
+      </if>
+      <if test="orderCount != null">
+        Order_Count = #{orderCount,jdbcType=INTEGER},
+      </if>
+      <if test="orderTotalPrice != null">
+        Order_Total_Price = #{orderTotalPrice,jdbcType=DECIMAL},
+      </if>
+      <if test="orderStatus != null">
+        Order_Status = #{orderStatus,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        Version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="insertTimeForThis != null">
+        Insert_Time_For_This = #{insertTimeForThis,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateTimeForThis != null">
+        Operate_Time_For_This = #{operateTimeForThis,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

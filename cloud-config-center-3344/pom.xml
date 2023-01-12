@@ -12,12 +12,15 @@
     <artifactId>cloud-config-center-3344</artifactId>
 
     <dependencies>
-        <dependency>
+        <dependency><!-- 集中化的外部配置支持 -->
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-config-server</artifactId>
         </dependency>
-        <!--eureka-client-->
-        <dependency>
+        <dependency> <!-- 添加消息总线RabbitMQ支持 -->
+            <groupId>org.springframework.cloud</groupId>
+            <artifactId>spring-cloud-starter-bus-amqp</artifactId>
+        </dependency>
+        <dependency><!--eureka-client-->
             <groupId>org.springframework.cloud</groupId>
             <artifactId>spring-cloud-starter-netflix-eureka-client</artifactId>
         </dependency>

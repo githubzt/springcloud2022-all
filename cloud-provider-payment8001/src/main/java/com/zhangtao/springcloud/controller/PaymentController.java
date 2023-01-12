@@ -4,7 +4,6 @@ import com.zhangtao.springcloud.service.PaymentService;
 import com.zhangtao.springcloud.entities.CommonResult;
 import com.zhangtao.springcloud.entities.Payment;
 import lombok.extern.slf4j.Slf4j;
-import org.apache.ibatis.annotations.Mapper;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.cloud.client.ServiceInstance;
@@ -79,5 +78,10 @@ public class PaymentController {
             e.printStackTrace();
         }
         return serverPort;
+    }
+
+    @GetMapping(value = "/payment/zipkin")
+    public String paymentZipkin(){
+        return "Hi ,I am paymentZipkin server fall back !";
     }
 }

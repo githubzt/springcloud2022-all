@@ -1,0 +1,146 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhangtao.springcloud.mapper.FcAccountMapper">
+  <resultMap id="BaseResultMap" type="com.zhangtao.springcloud.entities.FcAccount">
+    <!--@mbg.generated-->
+    <!--@Table fc_account-->
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="User_Id" jdbcType="VARCHAR" property="userId" />
+    <result column="Ac_Total" jdbcType="DECIMAL" property="acTotal" />
+    <result column="Ac_Used" jdbcType="DECIMAL" property="acUsed" />
+    <result column="Ac_Residue" jdbcType="DECIMAL" property="acResidue" />
+    <result column="version" jdbcType="INTEGER" property="version" />
+    <result column="Insert_Time_For_His" jdbcType="TIMESTAMP" property="insertTimeForHis" />
+    <result column="Operate_Time_For_His" jdbcType="TIMESTAMP" property="operateTimeForHis" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, User_Id, Ac_Total, Ac_Used, Ac_Residue, version, Insert_Time_For_His, Operate_Time_For_His
+  </sql>
+  <insert id="insertOrUpdate" keyColumn="Id" keyProperty="id" parameterType="com.zhangtao.springcloud.entities.FcAccount" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into fc_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      User_Id,
+      Ac_Total,
+      Ac_Used,
+      Ac_Residue,
+      version,
+      Insert_Time_For_His,
+      Operate_Time_For_His,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{userId,jdbcType=VARCHAR},
+      #{acTotal,jdbcType=DECIMAL},
+      #{acUsed,jdbcType=DECIMAL},
+      #{acResidue,jdbcType=DECIMAL},
+      #{version,jdbcType=INTEGER},
+      #{insertTimeForHis,jdbcType=TIMESTAMP},
+      #{operateTimeForHis,jdbcType=TIMESTAMP},
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        Id = #{id,jdbcType=BIGINT},
+      </if>
+      User_Id = #{userId,jdbcType=VARCHAR},
+      Ac_Total = #{acTotal,jdbcType=DECIMAL},
+      Ac_Used = #{acUsed,jdbcType=DECIMAL},
+      Ac_Residue = #{acResidue,jdbcType=DECIMAL},
+      version = #{version,jdbcType=INTEGER},
+      Insert_Time_For_His = #{insertTimeForHis,jdbcType=TIMESTAMP},
+      Operate_Time_For_His = #{operateTimeForHis,jdbcType=TIMESTAMP},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="Id" keyProperty="id" parameterType="com.zhangtao.springcloud.entities.FcAccount" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into fc_account
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="userId != null">
+        User_Id,
+      </if>
+      <if test="acTotal != null">
+        Ac_Total,
+      </if>
+      <if test="acUsed != null">
+        Ac_Used,
+      </if>
+      <if test="acResidue != null">
+        Ac_Residue,
+      </if>
+      <if test="version != null">
+        version,
+      </if>
+      <if test="insertTimeForHis != null">
+        Insert_Time_For_His,
+      </if>
+      <if test="operateTimeForHis != null">
+        Operate_Time_For_His,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="acTotal != null">
+        #{acTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="acUsed != null">
+        #{acUsed,jdbcType=DECIMAL},
+      </if>
+      <if test="acResidue != null">
+        #{acResidue,jdbcType=DECIMAL},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="insertTimeForHis != null">
+        #{insertTimeForHis,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateTimeForHis != null">
+        #{operateTimeForHis,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+    on duplicate key update 
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        Id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="userId != null">
+        User_Id = #{userId,jdbcType=VARCHAR},
+      </if>
+      <if test="acTotal != null">
+        Ac_Total = #{acTotal,jdbcType=DECIMAL},
+      </if>
+      <if test="acUsed != null">
+        Ac_Used = #{acUsed,jdbcType=DECIMAL},
+      </if>
+      <if test="acResidue != null">
+        Ac_Residue = #{acResidue,jdbcType=DECIMAL},
+      </if>
+      <if test="version != null">
+        version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="insertTimeForHis != null">
+        Insert_Time_For_His = #{insertTimeForHis,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateTimeForHis != null">
+        Operate_Time_For_His = #{operateTimeForHis,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>

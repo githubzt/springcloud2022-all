@@ -1,0 +1,17 @@
+server:
+  port: 22001
+
+spring:
+  application:
+    name: cloud-test-swagger
+
+swagger:
+  enabled: true
+  title: test-swagger
+  description: "测试swagger"
+  version: 1.0.0
+
+  contact:
+    name: zhangtao
+    email: 11111@qq.com
+    url: http://baidu.com

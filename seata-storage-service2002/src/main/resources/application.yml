@@ -1,0 +1,62 @@
+server:
+  port: 2002
+
+spring:
+  application:
+    name: seata-storage-service
+  cloud:
+    nacos:
+      discovery:
+        server-addr: 192.168.205.129:8848 #这里配置的是当前服务所要注册到的Nacos地址
+        group: SEATA_GROUP
+        namespace: 2a8d49b5-c90d-4842-8642-afa7b530af82
+      config: # 配置文件，公共信息均可放到配置文件中，controller加注解： @RefreshScope 实现动态刷新
+        server-addr: 192.168.205.129:8848 #配置nacos地址
+        file-extension: yaml #指定yaml格式的配置
+        group: DEV_GROUP
+        namespace: dev
+  profiles:
+    active: dev #表示开发环境
+  datasource:
+    type: com.alibaba.druid.pool.DruidDataSource  #当前数据源操作类型
+    driver-class-name: com.mysql.cj.jdbc.Driver      #mysql驱动包
+    url: jdbc:mysql://127.0.0.1:3306/cloud_dev_storage?serverTimezone=UTC&useUnicode=true&characterEncoding=utf-8&zeroDateTimeBehavior=convertToNull&transformedBitIsBoolean=true&useSSL=true
+    username: root
+    password: zhangtao
+  jpa:
+    show-sql: true # 默认false，在日志里显示执行的sql语句
+
+seata: # 大坑，只有在此处配置tx-service-group才能生效
+  tx-service-group: my-tx-group
+  application-id: ${spring.application.name}
+  service:
+    vgroupMapping:
+      my-tx-group: tx-group-gz
+    tx-group-gz:
+      grouplist: 192.168.205.129:8091
+  enabled: true
+  config: #nacos配置中心配置
+    type: nacos
+    nacos:
+      namespace: 2a8d49b5-c90d-4842-8642-afa7b530af82
+      server-addr: 192.168.205.129:8848
+      group: SEATA_GROUP
+      data-id: seataServer.properties
+  registry: #nacos注册中心配置 seata-tc-server采用nacos做为注册中心时（通过以下信息获取seata-tc-server实例列表）
+    type: nacos
+    nacos:
+      application: seata-tc-server
+      group: SEATA_GROUP
+      namespace: 2a8d49b5-c90d-4842-8642-afa7b530af82
+      cluster: tx-group-gz
+      server-addr: 192.168.205.129:8848
+  enable-auto-data-source-proxy: true
+  log:
+    exception-rate: 100
+
+feign:
+  sentinel:
+    enabled: false
+
+mybatis:
+  mapper-locations: classpath:mapper/*.xml

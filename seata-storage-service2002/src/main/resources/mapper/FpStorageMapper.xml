@@ -1,0 +1,263 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.zhangtao.springcloud.dao.FpStorageDao">
+  <resultMap id="BaseResultMap" type="com.zhangtao.springcloud.entities.FpStorage">
+    <!--@mbg.generated-->
+    <!--@Table fp_storage-->
+    <id column="Id" jdbcType="BIGINT" property="id" />
+    <result column="Product_Id" jdbcType="VARCHAR" property="productId" />
+    <result column="Product_Total" jdbcType="INTEGER" property="productTotal" />
+    <result column="Product_Used" jdbcType="INTEGER" property="productUsed" />
+    <result column="Product_Residue" jdbcType="INTEGER" property="productResidue" />
+    <result column="Version" jdbcType="INTEGER" property="version" />
+    <result column="Insert_Time_For_This" jdbcType="TIMESTAMP" property="insertTimeForThis" />
+    <result column="Operate_Time_For_This" jdbcType="TIMESTAMP" property="operateTimeForThis" />
+  </resultMap>
+  <sql id="Base_Column_List">
+    <!--@mbg.generated-->
+    Id, Product_Id, Product_Total, Product_Used, Product_Residue, Version, Insert_Time_For_This,
+    Operate_Time_For_This
+  </sql>
+
+  <select id="selectByProductId" parameterType="java.lang.String" resultMap="BaseResultMap">
+    <!--@mbg.generated-->
+    select <include refid="Base_Column_List" /> from fp_storage where Product_Id = #{productId}
+  </select>
+
+  <delete id="deleteByPrimaryKey" parameterType="java.lang.Long">
+    <!--@mbg.generated-->
+    delete from fp_storage
+    where Id = #{id,jdbcType=BIGINT}
+  </delete>
+
+  <insert id="create" keyColumn="Id" keyProperty="id" parameterType="com.zhangtao.springcloud.entities.FpStorage" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into fp_storage (Product_Id, Product_Total, Product_Used,Product_Residue)
+    values (#{productId,jdbcType=VARCHAR}, #{productTotal,jdbcType=INTEGER}, #{productUsed,jdbcType=INTEGER},
+      #{productResidue,jdbcType=INTEGER})
+  </insert>
+
+  <insert id="insertSelective" keyColumn="Id" keyProperty="id" parameterType="com.zhangtao.springcloud.entities.FpStorage" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into fp_storage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        Product_Id,
+      </if>
+      <if test="productTotal != null">
+        Product_Total,
+      </if>
+      <if test="productUsed != null">
+        Product_Used,
+      </if>
+      <if test="productResidue != null">
+        Product_Residue,
+      </if>
+      <if test="version != null">
+        Version,
+      </if>
+      <if test="insertTimeForThis != null">
+        Insert_Time_For_This,
+      </if>
+      <if test="operateTimeForThis != null">
+        Operate_Time_For_This,
+      </if>
+    </trim>
+    <trim prefix="values (" suffix=")" suffixOverrides=",">
+      <if test="productId != null">
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="productTotal != null">
+        #{productTotal,jdbcType=INTEGER},
+      </if>
+      <if test="productUsed != null">
+        #{productUsed,jdbcType=INTEGER},
+      </if>
+      <if test="productResidue != null">
+        #{productResidue,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="insertTimeForThis != null">
+        #{insertTimeForThis,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateTimeForThis != null">
+        #{operateTimeForThis,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+
+   <update id="updateUsed" parameterType="com.zhangtao.springcloud.entities.FpStorage">
+        update fp_storage set Product_Used=#{productUsed},Product_Residue=#{productResidue} where Product_Id = #{productId}
+    </update>
+
+  <update id="updateByPrimaryKeySelective" parameterType="com.zhangtao.springcloud.entities.FpStorage">
+    <!--@mbg.generated-->
+    update fp_storage
+    <set>
+      <if test="productId != null">
+        Product_Id = #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="productTotal != null">
+        Product_Total = #{productTotal,jdbcType=INTEGER},
+      </if>
+      <if test="productUsed != null">
+        Product_Used = #{productUsed,jdbcType=INTEGER},
+      </if>
+      <if test="productResidue != null">
+        Product_Residue = #{productResidue,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        Version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="insertTimeForThis != null">
+        Insert_Time_For_This = #{insertTimeForThis,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateTimeForThis != null">
+        Operate_Time_For_This = #{operateTimeForThis,jdbcType=TIMESTAMP},
+      </if>
+    </set>
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <update id="updateByPrimaryKey" parameterType="com.zhangtao.springcloud.entities.FpStorage">
+    <!--@mbg.generated-->
+    update fp_storage
+    set Product_Id = #{productId,jdbcType=VARCHAR},
+      Product_Total = #{productTotal,jdbcType=INTEGER},
+      Product_Used = #{productUsed,jdbcType=INTEGER},
+      Product_Residue = #{productResidue,jdbcType=INTEGER},
+      Version = #{version,jdbcType=INTEGER},
+      Insert_Time_For_This = #{insertTimeForThis,jdbcType=TIMESTAMP},
+      Operate_Time_For_This = #{operateTimeForThis,jdbcType=TIMESTAMP}
+    where Id = #{id,jdbcType=BIGINT}
+  </update>
+
+  <insert id="insertOrUpdate" keyColumn="Id" keyProperty="id" parameterType="com.zhangtao.springcloud.entities.FpStorage" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into fp_storage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      Product_Id,
+      Product_Total,
+      Product_Used,
+      Product_Residue,
+      Version,
+      Insert_Time_For_This,
+      Operate_Time_For_This,
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      #{productId,jdbcType=VARCHAR},
+      #{productTotal,jdbcType=INTEGER},
+      #{productUsed,jdbcType=INTEGER},
+      #{productResidue,jdbcType=INTEGER},
+      #{version,jdbcType=INTEGER},
+      #{insertTimeForThis,jdbcType=TIMESTAMP},
+      #{operateTimeForThis,jdbcType=TIMESTAMP},
+    </trim>
+    on duplicate key update
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        Id = #{id,jdbcType=BIGINT},
+      </if>
+      Product_Id = #{productId,jdbcType=VARCHAR},
+      Product_Total = #{productTotal,jdbcType=INTEGER},
+      Product_Used = #{productUsed,jdbcType=INTEGER},
+      Product_Residue = #{productResidue,jdbcType=INTEGER},
+      Version = #{version,jdbcType=INTEGER},
+      Insert_Time_For_This = #{insertTimeForThis,jdbcType=TIMESTAMP},
+      Operate_Time_For_This = #{operateTimeForThis,jdbcType=TIMESTAMP},
+    </trim>
+  </insert>
+  <insert id="insertOrUpdateSelective" keyColumn="Id" keyProperty="id" parameterType="com.zhangtao.springcloud.entities.FpStorage" useGeneratedKeys="true">
+    <!--@mbg.generated-->
+    insert into fp_storage
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        Id,
+      </if>
+      <if test="productId != null">
+        Product_Id,
+      </if>
+      <if test="productTotal != null">
+        Product_Total,
+      </if>
+      <if test="productUsed != null">
+        Product_Used,
+      </if>
+      <if test="productResidue != null">
+        Product_Residue,
+      </if>
+      <if test="version != null">
+        Version,
+      </if>
+      <if test="insertTimeForThis != null">
+        Insert_Time_For_This,
+      </if>
+      <if test="operateTimeForThis != null">
+        Operate_Time_For_This,
+      </if>
+    </trim>
+    values
+    <trim prefix="(" suffix=")" suffixOverrides=",">
+      <if test="id != null">
+        #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productId != null">
+        #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="productTotal != null">
+        #{productTotal,jdbcType=INTEGER},
+      </if>
+      <if test="productUsed != null">
+        #{productUsed,jdbcType=INTEGER},
+      </if>
+      <if test="productResidue != null">
+        #{productResidue,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        #{version,jdbcType=INTEGER},
+      </if>
+      <if test="insertTimeForThis != null">
+        #{insertTimeForThis,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateTimeForThis != null">
+        #{operateTimeForThis,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+    on duplicate key update
+    <trim suffixOverrides=",">
+      <if test="id != null">
+        Id = #{id,jdbcType=BIGINT},
+      </if>
+      <if test="productId != null">
+        Product_Id = #{productId,jdbcType=VARCHAR},
+      </if>
+      <if test="productTotal != null">
+        Product_Total = #{productTotal,jdbcType=INTEGER},
+      </if>
+      <if test="productUsed != null">
+        Product_Used = #{productUsed,jdbcType=INTEGER},
+      </if>
+      <if test="productResidue != null">
+        Product_Residue = #{productResidue,jdbcType=INTEGER},
+      </if>
+      <if test="version != null">
+        Version = #{version,jdbcType=INTEGER},
+      </if>
+      <if test="insertTimeForThis != null">
+        Insert_Time_For_This = #{insertTimeForThis,jdbcType=TIMESTAMP},
+      </if>
+      <if test="operateTimeForThis != null">
+        Operate_Time_For_This = #{operateTimeForThis,jdbcType=TIMESTAMP},
+      </if>
+    </trim>
+  </insert>
+</mapper>
