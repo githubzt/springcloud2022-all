@@ -46,6 +46,7 @@
         <module>cloud-api-commons-test</module>
         <module>cloud-api-commons</module>
         <module>cloud-api-sonwflake</module>
+        <module>cloud-api-thread</module>
     </modules>
 
     <!-- 统一管理jra包版本 -->

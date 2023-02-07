@@ -1,5 +1,6 @@
 server:
   port: 3344
+
 spring:
   application:
     name: cloud-config-center
@@ -10,13 +11,24 @@ spring:
           uri: https://github.com/githubzt/springcloud-config.git
           search-paths: # 搜索目录
             - springcloud-config
-      label: master   # 读取分支
+      label: master   # 读取分支  访问地址： http://config-3344.com:3344/master/config-dev.yml
+  rabbitmq: #rabbitMQ相关配置
+    host: 192.168.205.129
+    port: 5672    # 5672才是访问mq发消息的端口 15672是访问web的端口
+    username: zhang
+    password: zhang
+
+management: # rabbitMQ相关配置， github修改配置后，运维工程师手工同步消息：curl -X POST "http://localhost:3344/actuator/bus-refresh"
+  endpoints: # 暴露bus刷新配置的端点
+    web:
+      exposure:
+        include: 'bus-refresh'
 
 eureka:
   client:
     #表示自己注册进eurekaServer默认为true
     register-with-eureka: true
-    #fetchRegistry: true #是否从eureka抓取自己的注册信息，默认为true,丹姐点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
+    #fetchRegistry: true #是否从eureka抓取自己的注册信息，默认为true,单点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
     service-url:
       defaultZone: http://eureka7001.com:7001/eureka
       #defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7001.com:7001/eureka/ #集群版

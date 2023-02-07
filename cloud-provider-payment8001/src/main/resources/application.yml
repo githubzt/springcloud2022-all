@@ -4,6 +4,11 @@ server:
 spring:
   application:
     name: cloud-provider-service
+  zipkin: #--链路监控-------
+    base-url: http://localhost:9411  # 仪表盘地址
+  sleuth:
+    sampler:  #采样率值介于 0到1之间 通常0.5即可 1表示全部采集
+      probability: 1.0
   datasource:
     type: com.alibaba.druid.pool.DruidDataSource  #当前数据源操作类型
     driver-class-name: com.mysql.jdbc.Driver      #mysql驱动包
@@ -21,12 +26,12 @@ eureka:
     register-with-eureka: true
     fetchRegistry: true #是否从eureka抓取自己的注册信息，默认为true,单点无所谓，集群必须设置为true才能配合ribbon使用负载均衡
     service-url:
-      #defaultZone: http://localhost:7001/eureka   单机版
+      #defaultZone: http://eureka7001.com:7001/eureka   #单机版
       defaultZone: http://eureka7002.com:7002/eureka/,http://eureka7001.com:7001/eureka/ #集群版
   instance:
     instanceId: payment8001 # 主机名称 eureka注册显示
     prefer-ip-address: true #显示主机IP
     #Eureka服务端在收到最后一次心跳后等待时间上限，单位为秒(默认90s),超时将剔除服务
-    lease-expiration-duration-in-seconds: 2
+    lease-expiration-duration-in-seconds: 90
     #Eureka客户端向服务端发送心跳时间间隔，单位为秒(默认为30s)
-    lease-renewal-interval-in-seconds: 1
+    lease-renewal-interval-in-seconds: 30
