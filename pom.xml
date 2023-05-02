@@ -47,6 +47,13 @@
         <module>cloud-api-commons</module>
         <module>cloud-api-sonwflake</module>
         <module>cloud-api-thread</module>
+        <module>cloud-redis-1111</module>
+        <module>cloud-redis-2222</module>
+        <module>cloud-elasticsearch</module>
+        <module>cloud-Dubbo3.0-provider</module>
+        <module>cloud-Dubbo3.0-consumer</module>
+        <module>cloud-dubbo3.0-common</module>
+        <module>cloud-dubbo3.0-simulate</module>
     </modules>
 
     <!-- 统一管理jra包版本 -->
@@ -60,6 +67,7 @@
         <log4j.version>1.2.17</log4j.version>
         <mysql.version>8.0.25</mysql.version>
         <fastjson.version>1.2.58</fastjson.version>
+        <hutool.version>4.5.18</hutool.version>
     </properties>
 
     <!-- 子模块继承之后作用；锁定版本 + 子modlue不用写 groupId 和 version -->
@@ -103,6 +111,11 @@
                 <version>${druid.version}</version>
             </dependency>
             <dependency>
+                <groupId>mysql</groupId>
+                <artifactId>mysql-connector-java</artifactId>
+                <version>${mysql.version}</version>
+            </dependency>
+            <dependency>
                 <groupId>com.alibaba</groupId>
                 <artifactId>fastjson</artifactId>
                 <version>${fastjson.version}</version>
@@ -112,10 +125,11 @@
                 <artifactId>log4j</artifactId>
                 <version>${log4j.version}</version>
             </dependency>
+            <!--一个 Java 基础工具类，对文件、流、加密解密、转码、正则、线程、XML等JDK方法进行封装，组成各种Util工具类 -->
             <dependency>
-                <groupId>mysql</groupId>
-                <artifactId>mysql-connector-java</artifactId>
-                <version>${mysql.version}</version>
+                <groupId>cn.hutool</groupId>
+                <artifactId>hutool-all</artifactId>
+                <version>${hutool.version}</version>
             </dependency>
         </dependencies>
 

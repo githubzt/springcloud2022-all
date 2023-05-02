@@ -1,0 +1,8 @@
+server:
+  port: 10001
+
+#关闭thymleaf的缓存  本地开发环境下，需要把缓存关闭，否则调试成本太大。其他环境下缓存都需要打开。
+spring:
+  thymeleaf:
+    cache: false
+

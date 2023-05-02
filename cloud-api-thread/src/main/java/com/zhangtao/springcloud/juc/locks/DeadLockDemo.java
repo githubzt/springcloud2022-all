@@ -4,7 +4,7 @@ import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantLock;
 
 /**
- * 1. @ClassDescription:
+ * 1. @ClassDescription:  死锁
  * 2. @author: ZhangTao
  * 3. @date: 2023年02月02日 9:32
  */

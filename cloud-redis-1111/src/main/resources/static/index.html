@@ -1,0 +1,987 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <style>
+        *{
+            padding: 0;
+            margin: 0;
+        }
+        body{
+            margin: 0 auto;
+            font: 14px/1.5 "Microsoft YaHei",Tahoma,"simsun",sans-serif;
+        }
+        body>div{
+            width: 1600px;
+            height: 1100px;
+            background-image: url("https://ossweb-img.qq.com/upload/webplat/info/yxzj/20220303/42348420765283.jpg");
+            background-size: 1600px;
+            background-repeat: no-repeat;
+        }
+        #xh{
+            position: absolute;
+            left: 150px;
+            top: 450px;
+
+        }
+        #xh>p{
+            font-size: 45px;
+            font-weight: bold;
+            color: #ff69b4;
+            text-shadow: pink 20px -20px 3px;
+        }
+        #t_div{
+            height: 84px;
+            background-color: rgba(0,0,0,0.7);
+            overflow: hidden;
+        }
+        #t_div>img{
+            margin-left: 100px;
+            margin-top: 16px;
+            margin-right: 50px;
+            width: 200px;
+            height: 54px;
+            float: left;
+        }
+        #t_div>span{
+            line-height: 84px;
+            display: block;
+            width: 110px;
+            float: left;
+        }
+        #t_div>span>a{
+            text-decoration: none;
+            text-align: center;
+            height: 84px;
+            font-size: 20px;
+            color: #c9c9dd;
+        }
+        #t_div_i1{
+            display: block;
+            width: 27px;
+            height: 26px;
+            background-image: url("https://game.gtimg.cn/images/yxzj/web201706/images/comm/nav_search.png");
+            float: left;
+            position: relative;
+            top:30px;
+        }
+
+        #t_div_i2{
+            margin-left: 50px;
+            display: block;
+            width: 44px;
+            height: 44px;
+            background-image: url("1.png");
+            float: left;
+            position: relative;
+            top: 23px;
+        }
+        #t_div>p{
+            font-size: 25px;
+            color: white;
+            line-height: 84px;
+        }
+        #t_m_blank_div
+        {
+            width: 1600px;
+            height: 500px;
+        }
+
+        #m_l_div{
+            margin-left: 150px;
+            width: 604px;
+            height: 342px;
+            background-image: url("https://ossweb-img.qq.com/upload/adw/image/194/20220303/10ea7e5cdf67ccf92e127f93f0b6db0d.jpeg");
+            background-repeat: no-repeat;
+            overflow: hidden;
+            float: left;
+        }
+        #m_l_div>span{
+            display: inline-block;
+            width: 120.8px;
+            height: 44px;
+            float: left;
+            background: black;
+            color: #B1B2BE;
+            margin-top: 298px;
+            line-height: 44px;
+            text-align: center;
+            font-size: 14px;
+            overflow: hidden;
+        }
+        #m_m_div{
+            width: 325px;
+            height: 342px;
+            float: left;
+            overflow: hidden;
+            background-color: #323235;
+        }
+        #m_m_t_div{
+            width: 325px;
+            height: 49px;
+        }
+        #m_m_t_div>ul{
+            list-style-type: none;
+            overflow: hidden;
+        }
+        #m_m_t_div>ul>li{
+            float: left;
+            color: #B8B9C5;
+            text-align: center;
+            line-height: 49px;
+            font-size: 14px;
+            margin-left: 20px;
+        }
+        #m_m_m_div{
+            width: 280px;
+            height: 36px;
+            background-color: #414046;
+            margin: 0 auto;
+        }
+        #m_m_m_div>span{
+            line-height: 36px;
+            font-size: 18px;
+            color: #F3C258;
+            padding-left: 10px;
+        }
+        #m_m_b_div{
+            width: 325px;
+
+        }
+        .c1{
+            font-size: 12px;
+            color: #FF3636;
+            border: 1px solid currentColor;
+            margin-left: 5px;
+        }
+        .c2{
+            font-size: 14px;
+            color: #B8B9C5;
+
+        }
+        .c3{
+            color: #999;
+            font-size: 12px;
+            float: right;
+            margin-right: 10px;
+
+        }
+        #m_m_b_div>p{
+            margin-top: 15px;
+            margin-left: 16px;
+            margin-bottom: 11px;
+        }
+        #m_r_div{
+            width: 236px;
+            height: 342px;
+            float: left;
+            background-image: url("2.jpg");
+            background-size: 236px 342px;
+            background-repeat: no-repeat;
+        }
+        #m1_div{
+            width: 1180px;
+            height: 134px;
+            margin-top: 370px;
+            margin-bottom: 34px;
+            margin-left: 150px;
+            overflow: hidden;
+        }
+        #m1_div>img{
+            width: 280px;
+            height: 134px;
+            float: left;
+            margin-right: 15px;
+        }
+        #m2_div{
+            width: 1165px;
+            height: 528px;
+            overflow: hidden;
+            margin-left: 150px;
+            margin-bottom: 40px;
+        }
+        #m2_f_div{
+            width: 850px;
+            height: 528px;
+            float: left;
+        }
+        #m2_r_div{
+            width: 285px;
+            height: 528px;
+            float: right;
+            overflow: hidden;
+        }
+        #m2_f_div>#m2_f_t_div{
+            width: 850px;
+            height: 118px;
+        }
+        #m2_f_div>#m2_f_b_div{
+            width: 850px;
+            height: 410px;
+            overflow: hidden;
+        }
+        #m2_r_div>#m2_r_t_div{
+            width: 285px;
+            height: 120px;
+        }
+        #m2_r_div>#m2_r_m1_div{
+            width: 285px;
+            height: 156px;
+        }#m2_r_div>#m2_r_m2_div{
+             width: 285px;
+             height: 70px;
+         }
+        #m2_r_div>#m2_r_b_div{
+            width: 285px;
+            height: 180px;
+        }
+        #m2_f_t_1_div{
+            height: 27px;
+            margin-bottom: 16px;
+        }
+        #m2_f_t_1_div>p{
+            font-size: 22px;
+            color: #323235;
+            font-weight: bold;
+            padding-left: 20px;
+        }
+        #m2_f_t_1_div>p>span{
+            font-size: 14px;
+            color: #999;
+            float: right;
+        }
+        #m2_f_t_1_div>p>span>img{
+            margin-right: 5px;
+            position: relative;
+            top: 5px;
+        }
+        #m2_f_t_2_div{
+            height: 32px;
+        }
+        #m2_f_t_2_div>a{
+            width: 283px;
+            height: 32px;
+            line-height: 32px;
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            background-color: #F5F5F5;
+            float: left;
+            color: #999999;
+            text-decoration: none;
+        }
+        #m2_f_t_3_div{
+            margin-top: 10px;
+            margin-bottom: 9px;
+            height: 26px;
+        }
+        #m2_f_t_3_div>a{
+            color: #333;
+            background-color: #F5F5F5;
+            font-size: 14px;
+            text-decoration: none;
+            text-align: center;
+            line-height: 26px;
+            padding-left: 15px;
+            padding-right: 15px;
+            border-radius: 10px;
+        }
+        #m2_f_b_div>span{
+            width: 202px;
+            height: 175px;
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 30px;
+        }
+        #m2_f_b_div>span>img{
+            width: 202px;
+            height: 125px;
+            margin-bottom: 10px;
+        }
+        #m2_f_b_div>span>p{
+            color: #333;
+            font-size:  14px;
+        }
+
+        #m2_r_t_div{
+            height: 120px;
+            margin-bottom: 16px;
+        }
+        #m2_r_t_div>p{
+            font-size: 22px;
+            color: #323235;
+            font-weight: bold;
+            padding-left: 20px;
+        }
+        #m2_r_t_div>p>span{
+            font-size: 14px;
+            color: #999;
+            float: right;
+        }
+        #m2_r_t_div>p>span>img{
+            margin-right: 5px;
+            position: relative;
+            top: 5px;
+        }
+
+        #m2_r_t_div>a{
+            margin-top: 12px;
+            width: 95px;
+            height: 32px;
+            line-height: 32px;
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            background-color: #F5F5F5;
+            float: left;
+            color: #999999;
+            text-decoration: none;
+        }
+        #m2_r_m1_div{
+            width: 285px;
+            height: 156px;
+        }
+        #m2_r_m1_div>img{
+            width: 285px;
+            height: 156px;
+        }
+        #m2_r_m2_div{
+            width: 285px;
+            height: 70px;
+        }
+        #m2_r_m2_div>#p1{
+            color: #333;
+            font-size: 18px;
+            font-weight: bold;
+            margin-top: 10px;
+            margin-bottom: 0;
+            height: 27px;
+            padding-left: 15px;
+        }
+        #m2_r_m2_div>#p2{
+            height: 18px;
+            color: #999999;
+            font-size: 12px;
+            padding-left: 15px;
+        }
+        #m2_r_b_div>img{
+            width: 64px;
+            height: 173px;
+            float: left;
+            margin-right: 7px;
+        }
+        #m3_div{
+            width: 1165px;
+            height: 780px;
+            overflow: hidden;
+            margin-left: 150px;
+            margin-bottom: 200px;
+        }
+        #m3_f_div{
+            width: 850px;
+            height: 780px;
+            float: left;
+        }
+        #m3_r_div{
+            width: 285px;
+            height: 780px;
+            float: right;
+        }
+        #m3_f_t_div{
+            height: 80px;
+            width: 850px;
+        }
+        #m3_f_m_div{
+            width: 850px;
+            height: 260px;
+            overflow: hidden;
+        }
+        #m3_f_b_div{
+            width: 850px;
+            height: 410px;
+            margin-top: 20px;
+        }
+        #m3_r_t_div{
+            width: 285px;
+            height: 80px;
+        }
+        #m3_r_m_div{
+            width: 285px;
+            height: 210px;
+            overflow: hidden;
+            position: relative;
+        }
+        #m3_r_b_div{
+            width: 285px;
+            height: 160px;
+        }
+
+        #m3_f_t_div{
+            margin-bottom: 16px;
+            overflow: hidden;
+        }
+        #m3_f_t_div>p{
+            font-size: 22px;
+            color: #323235;
+            font-weight: bold;
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
+        #m3_f_t_div>p>span{
+            font-size: 14px;
+            color: #999;
+            float: right;
+        }
+        #m3_f_t_div>p>span>img{
+            margin-right: 5px;
+            position: relative;
+            top: 5px;
+        }
+
+        #m3_f_t_div>a{
+            width: 106px;
+            height: 32px;
+            line-height: 32px;
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            background-color: #F5F5F5;
+            float: left;
+            color: #999999;
+            text-decoration: none;
+        }
+        #m3_f_m_f_div{
+            width: 211px;
+            height: 260px;
+            float: left;
+        }
+        #m3_f_m_r_div{
+            width: 620px;
+            height: 260px;
+            float: right;
+        }
+
+        #m3_f_m_r_div>.p1{
+            height: 21px;
+            line-height: 21px;
+            color: #333333;
+            font-size: 14px;
+            margin-bottom: 10px;
+        }
+        .s1{
+            color: #999999;
+            display: block;
+            width: 52px;
+            height: 23px;
+            text-align: center;
+            line-height: 23px;
+            background-color: #E3E3E3;
+            border-radius: 10px;
+            float: left;
+            margin-right: 10px;
+        }
+        .s2{
+            display: block;
+            width: 34px;
+            height: 18px;
+            color: #B8B9C5;
+            font-size: 12px;
+            float: right;
+        }
+        #p3{
+            font-size: 24px;
+            color: #333;
+            height: 32px;
+            line-height: 32px;
+        }
+        #p4{
+            color: #666666;
+            font-size: 14px;
+            height: 23px;
+            line-height: 23px;
+            margin-bottom: 10px;
+        }
+
+
+        #m3_f_b_div>span{
+            width: 202px;
+            height: 175px;
+            float: left;
+            margin-right: 10px;
+            margin-bottom: 30px;
+        }
+        #m3_f_b_div>span>img{
+            width: 202px;
+            height: 125px;
+            margin-bottom: 10px;
+        }
+        #m3_f_b_div>span>p{
+            color: #333;
+            font-size:  14px;
+        }
+
+        #m3_r_t_div{
+            margin-bottom: 16px;
+            overflow: hidden;
+            position: relative;
+        }
+        #m3_r_t_div>p{
+            font-size: 22px;
+            color: #323235;
+            font-weight: bold;
+            padding-left: 20px;
+            margin-bottom: 16px;
+        }
+        #m3_r_t_div>p>span{
+            font-size: 14px;
+            color: #999;
+            float: right;
+        }
+        #m3_r_t_div>p>span>img{
+            margin-right: 5px;
+            position: relative;
+            top: 5px;
+        }
+
+        #m3_r_t_div>a{
+            width: 94px;
+            height: 29px;
+            line-height: 29px;
+            display: block;
+            text-align: center;
+            font-size: 14px;
+            background-color: #F5F5F5;
+            float: left;
+            color: #999999;
+            text-decoration: none;
+        }
+        #a1{
+            width: 70px;
+            height: 22px;
+            color: #323235;
+            font-size: 14px;
+            position: absolute;
+            border: 1px solid #F3C258;
+            text-decoration: none;
+            right: 65px;
+            text-align: center;
+            line-height: 22px;
+            top: 6px;
+            border-radius: 10px;
+        }
+        #img1{
+            position: absolute;
+            right: 72px;
+        }
+        .s3{
+            width: 78px;
+            height: 67px;
+            font-size: 12px;
+            color: #333333;
+            float: left;
+            text-align: center;
+            line-height: 67px;
+        }
+        .s4>img{
+            width: 25px;
+            height: 25px;
+            position: relative;
+            top: 10px;
+            left: 20px;
+        }
+        .s4{
+            width: 78px;
+            height: 67px;
+            font-size: 12px;
+            color: #333333;
+            float: left;
+            position: relative;
+        }
+        .s5{
+            width: 43px;
+            height: 67px;
+            font-size: 14px;
+            color: #F3C258;
+            line-height: 67px;
+            text-align: center;
+            float: left;
+        }
+        .s4>span{
+            width: 78px;
+            height: 20px;
+            text-align: center;
+            line-height: 20px;
+            position: absolute;
+            bottom: 8px;
+            left: 0;
+        }
+        #b_div{
+            width: 1165px;
+            height: 350px;
+            margin-left: 150px;
+        }
+        #b_t_div{
+            width: 1165px;
+            height: 80px;
+            margin-bottom: 20px;
+        }
+        #b_b_div{
+            width: 1165px;
+            height: 200px;
+            overflow: hidden;
+        }
+        #b_b_l_div{
+            width: 510px;
+            height: 200px;
+            float: left;
+        }
+        #b_b_r_div{
+            width: 630px;
+            height: 200px;
+            float: right;
+        }
+        #b_b_r_t_div{
+            width: 630px;
+            height: 80px;
+        }
+        #b_b_r_b_div{
+            width: 630px;
+            height: 80px;
+            position: relative;
+        }
+        #b_b_l_div>ul{
+            list-style-type: none;
+            overflow: hidden;
+        }
+        #b_b_l_div>ul>li{
+            width: 72px;
+            height: 16px;
+            line-height: 16px;
+            font-size: 12px;
+            color: #6D6D6D;
+            float: left;
+            margin-top: 12px;
+            margin-right: 12px;
+        }
+        #b_b_l_div>p{
+            color: #666666;
+            font-size: 12px;
+            margin-top: 6px;
+        }
+        #b_b_r_t_div>p{
+            color: #646467;
+            font-size: 12px;
+            margin-top: 12px;
+            margin-bottom: 12px;
+        }
+        #b_b_r_b_div>p{
+            display: block;
+            margin-left: 15px;
+            color: #646467;
+            font-size: 12px;
+            margin-top: 0;
+            margin-bottom: 12px;
+            position: relative;
+            top: 0;
+        }
+        #img_2{
+            position: absolute;
+            top:1px;
+        }
+        #img_3 {
+            position: absolute;
+        }
+        #b_b_r_b_div>span{
+            color: #666666;
+            font-size: 12px;
+            margin-top: 40px;
+        }
+    </style>
+</head>
+<body>
+<div>
+    <div id="xh">
+        <p>肖行-达内郑州文化路中心</p>
+    </div>
+    <div id="t_div">
+        <img src="https://game.gtimg.cn/images/yxzj/web201706/images/comm/logo.png">
+        <span><a href="">游戏资料</a></span>
+        <span><a href="">内容中心</a></span>
+        <span><a href="">赛事中心</a></span>
+        <span><a href="">百态王者</a></span>
+        <span><a href="">社区互动</a></span>
+        <span><a href="">玩家支持</a></span>
+        <span><a href="">IP新游</a></span>
+        <i id="t_div_i1"></i>
+        <i id="t_div_i2"></i>
+        <p>欢迎登录</p>
+    </div>
+    <div id="t_m_blank_div"></div>
+    <div id="m_div">
+        <div id="m_l_div">
+            <span>花朝节皮肤动画</span>
+            <span>线稿方案票选</span>
+            <span>KPL第二轮赛程</span>
+            <span>斗鱼骚白杯二期</span>
+            <span>斗鱼花朝节福利</span>
+        </div>
+        <div id="m_m_div">
+            <div id="m_m_t_div">
+                <ul>
+                    <li>热门</li>
+                    <li>新闻</li>
+                    <li>公告</li>
+                    <li>活动</li>
+                    <li>赛事</li>
+                    <li>...</li>
+                </ul>
+            </div>
+            <div id="m_m_m_div">
+                <span>元歌皮肤设计大赛精彩创作...</span>
+            </div>
+            <div id="m_m_b_div">
+                <p><span class="c1">活动</span><span class="c2">【微信用户专属】微信小程序“游...</span><span class="c3">03/03</span></p>
+                <p><span class="c1">活动</span><span class="c2">【赴花朝】送皮肤英雄活动开启公告</span><span class="c3">03/02</span></p>
+                <p><span class="c1">活动</span><span class="c2">【3月花朝挑战】活动开启公告及FAQ</span><span class="c3">03/02</span></p>
+                <p><span class="c1">活动</span><span class="c2">霸王别姬优化·局外展示场景方案...</span><span class="c3">03/02</span></p>
+                <p><span class="c1">活动</span><span class="c2">阿轲-暗夜猫娘皮肤优化海报线稿...</span><span class="c3">03/02</span></p>
+                <p><span class="c1">活动</span><span class="c2">【花朝月历】精彩预告活动开启公告 </span><span class="c3">03/01</span></p>
+                <p><span class="c1">活动</span><span class="c2">蔡文姬-花朝如约即将上线，两大...</span><span class="c3">02/28</span></p>
+            </div>
+        </div>
+        <div id="m_r_div">
+        </div></div>
+    <div id="m1_div">
+        <img src="https://ossweb-img.qq.com/upload/webplat/info/yxzj/20181210/86638782789061.jpg">
+        <img src="https://ossweb-img.qq.com/upload/webplat/info/yxzj/20210113/239381533097800.png">
+        <img src="https://ossweb-img.qq.com/upload/webplat/info/yxzj/20220302/903011568461870.jpg">
+        <img src="https://ossweb-img.qq.com/upload/webplat/info/yxzj/20211013/82897411915786.png">
+    </div>
+    <div id="m2_div">
+        <div id="m2_f_div">
+            <div id="m2_f_t_div">
+                <div id="m2_f_t_1_div">
+                    <p>内容中心 <span><img src="3.jpg">更多</span></p>
+                </div>
+                <div id="m2_f_t_2_div">
+                    <a href="">精品栏目</a>
+                    <a href="">赛事精品</a>
+                    <a href="">英雄攻略</a>
+                </div>
+                <div id="m2_f_t_3_div">
+                    <a href="">最新</a>
+                    <a href="">马菠萝奇闻录</a>
+                    <a href="">王者克制论</a>
+                    <a href="">王者视角</a>
+                    <a href="">策见打</a>
+                    <a href="">峡谷460</a>
+                    <a href="">百星王者带你飞</a>
+                    <a href="">狄仁杰封神录</a>
+                </div>
+            </div>
+
+            <div id="m2_f_b_div">
+        <span>
+          <img src="https://shp.qpic.cn/cfwebcap/0/4f888fc54fc390a2405cff4dc02c5572/0/?width=230&height=140" alt="">
+          <p>赛季末全位置稳定上分的英雄,排<br>位摘星如喝水!</p>
+        </span>
+                <span>
+          <img src="https://shp.qpic.cn/cfwebcap/0/46b690f03845306e38ba95d17b7f3ae9/0/?width=230&height=140" alt="">
+          <p>塔见愁!ban率第一的东皇越塔细<br>节解析</p>
+        </span>
+                <span>
+          <img src="https://shp.qpic.cn/cfwebcap/0/867c7e09f98559497d6ac375fe2c2bdc/0/?width=230&height=140" alt="">
+          <p>如何解决发育路问题?通过数据,<br>我看透了策划的心思!</p>
+        </span>
+                <span>
+          <img src="https://shp.qpic.cn/cfwebcap/0/a9adcc5decf4c46108deaf4b1fa041c9/0/?width=230&height=140" alt="">
+          <p>电麻了!打野司空震真滴猛,巅峰<br>胜率最高的男人</p>
+        </span>
+                <span>
+          <img src="https://shp.qpic.cn/cfwebcap/0/0d7491f66539ee741c4103e7b06e6efa/0/?width=230&height=140" alt="">
+          <p>苍穹"不死流"芈月,团战到底有多<br>抗?</p>
+        </span>
+                <span>
+          <img src="https://shp.qpic.cn/cfwebcap/0/e5f9b659285d7706b142496d4506eced/0/?width=230&height=140" alt="">
+          <p>兵线运营的极致,无视野偷塔让对<br>手崩溃!</p>
+        </span>
+                <span>
+          <img src="https://shp.qpic.cn/cfwebcap/0/e2da441590e940c87ba8b8a21d9e309e/0/?width=230&height=140" alt="">
+          <p>【马菠萝奇闻录】第30期:体验<br>服资源调整，暗影先锋加入峡谷</p>
+        </span>
+                <span>
+          <img src="https://shp.qpic.cn/cfwebcap/0/6cb53931d242fb7e2d306249ec016896/0/?width=230&height=140" alt="">
+          <p>【野王修炼手册】第11期：打野<br>嫦娥的抓人技巧与团战意识</p>
+        </span>
+            </div>
+        </div>
+        <div id="m2_r_div">
+            <div id="m2_r_t_div">
+                <p>英雄/皮肤 <span><img src="3.jpg">更多</span></p>
+                <a href="">最新英雄</a>
+                <a href="">最新皮肤</a>
+                <a href="">周免英雄</a>
+            </div>
+            <div id="m2_r_m1_div">
+                <img src="https://game.gtimg.cn/images/yxzj/img201606/freehero/horizontal/542.jpg" alt="">
+            </div>
+            <div id="m2_r_m2_div">
+                <p id="p1">新英雄：暃</p>
+                <p id="p2">上线时间: 2022.01.06</p>
+            </div>
+            <div id="m2_r_b_div">
+                <img src="https://game.gtimg.cn/images/yxzj/img201606/freehero/vertical/540.jpg" alt="">
+                <img src="https://game.gtimg.cn/images/yxzj/img201606/freehero/vertical/538.jpg" alt="">
+                <img src="https://game.gtimg.cn/images/yxzj/img201606/freehero/vertical/155.jpg" alt="">
+                <img src="https://game.gtimg.cn/images/yxzj/img201606/freehero/vertical/537.jpg" alt="">
+            </div>
+        </div></div>
+    <div id="m3_div">
+        <div id="m3_f_div">
+            <div id="m3_f_t_div">
+                <p>赛事中心 <span><img src="3.jpg">更多</span></p>
+                <a href="">KPL</a>
+                <a href="">挑战者杯</a>
+                <a href="">K甲联赛</a>
+                <a href="">城市赛</a>
+                <a href="">高校联赛</a>
+                <a href="">TGA</a>
+                <a href="">微信游戏邀请赛</a>
+                <a href=""></a>
+            </div>
+            <div id="m3_f_m_div">
+                <div id="m3_f_m_f_div">
+                    <img src="https://ossweb-img.qq.com/upload/webplat/info/yxzj/20220224/1237542471740.jpg" >
+                </div>
+                <div id="m3_f_m_r_div">
+                    <p id="p3">春季赛快讯：武汉ES击败广州TTG，坦然...</p>
+                    <p id="p4">3月4日2022年KPL春季赛常规赛第二轮第一周第二日第二场，由武汉eStarPro...</p>
+                    <p class="p1"><span class="s1">KPL</span>春季赛快讯：上海EDG.M击败MTG，yuan镜华丽收割<span class="s2">03-04</span></p>
+                    <p class="p1"><span class="s1">KPL</span>今日预报丨上海EDGM迎虎而上，广州TTG能否胜武汉ES<span class="s2">03-04</span></p>
+                    <p class="p1"><span class="s1">KPL</span>春季赛快讯：重庆狼队击败XYG，向鱼嬴政过半输出压制全场<span class="s2">03-03</span></p>
+                    <p class="p1"><span class="s1">KPL</span>春季赛快讯：佛山GK零封北京WB，百兽猪八戒肉不可挡<span class="s2">03-03</span></p>
+                    <p class="p1"><span class="s1">KPL</span>今日预报丨花楼带领北京WB迎战佛山GK，XYG再战重庆狼队<span class="s2">03-03</span></p>
+                    <p class="p1"><span class="s1">KPL</span>KPL春季赛第三周最佳阵容：清融、妖刀蝉联，清清获双料周最佳<span class="s2">03-01</span></p>
+
+                </div>
+            </div>
+            <div id="m3_f_b_div">
+      <span>
+          <img src="https://shp.qpic.cn/cfwebcap/0/73ebfdeac1f2ba5dc8dfc91ac69d0341/0/?width=230&height=140" alt="">
+          <p>【赛事速递】上海EDG.M获得胜<br>利 武汉ES拿下比赛</p>
+        </span>
+                <span>
+          <img src="https://shp.qpic.cn/cfwebcap/0/1b1e6d63778e337d07b5f0797228e2b3/0/?width=230&height=140" alt="">
+          <p>【赛后采访】笑风：度过了第一<br>轮，自己也总结到了很多的经验</p>
+        </span>
+                <span>
+          <img src="https://shp.qpic.cn/cfwebcap/0/3b94806a5f4fb54267ebdd218e8166f5/0/?width=230&height=140" alt="">
+          <p>【赛后采访】清融、花海：感受<br>是特别开心，兄弟们特别给力</p>
+        </span>
+                <span>
+          <img src="https://shp.qpic.cn/cfwebcap/0/5477f6bea4967a10741b980d9aab7297/0/?width=230&height=140" alt="">
+          <p>KPL春季赛常规赛 武汉eStar vs <br>广州TTG_4</p>
+        </span>
+                <span>
+          <img src="https://shp.qpic.cn/cfwebcap/0/5477f6bea4967a10741b980d9aab7297/0/?width=230&height=140" alt="">
+          <p>KPL春季赛常规赛 武汉eStar vs <br>广州TTG_3</p>
+        </span>
+                <span>
+          <img src="https://shp.qpic.cn/cfwebcap/0/5477f6bea4967a10741b980d9aab7297/0/?width=230&height=140" alt="">
+          <p>KPL春季赛常规赛 武汉eStar vs <br>广州TTG_2</p>
+        </span>
+                <span>
+          <img src="https://shp.qpic.cn/cfwebcap/0/6ee4bc94c937d8f127e8f82867079f7f/0/?width=230&height=140" alt="">
+          <p>【精彩集锦】花海镜二连击破 不<br>然阿古朵绝对领域连环控制</p>
+        </span>
+                <span>
+          <img src="https://shp.qpic.cn/cfwebcap/0/6ee4bc94c937d8f127e8f82867079f7f/0/?width=230&height=140" alt="">
+          <p>【精彩集锦】华郴马可波罗二连<br>击破柠栀梦奇控制打满二连击破</p>
+        </span>
+
+            </div></div>
+        <div id="m3_r_div">
+            <div id="m3_r_t_div">
+                <p>KPL赛程 <span><a id="a1"><img id="img1" src="4.jpg" alt="">购票</a><img src="3.jpg">更多</span></p>
+                <a href="">时间</a>
+                <a href="">战队</a>
+                <a href="">战队</a>
+            </div>
+            <div id="m3_r_m_div">
+                <p>
+                    <span class="s3">3-5 15:00</span>
+                    <span class="s4">
+          <img src="https://itea-cdn.qq.com/file/ingame/smoba/phpQljSW913126553591635413797.png" >
+          <span>济南RW侠</span>
+        </span>
+                    <span class="s5">VS</span>
+                    <span class="s4">
+          <img src="https://itea-cdn.qq.com/file/ingame/smoba/phpwC1qZl8746411151635413956.png" >
+        <span>苏州KSG</span>
+        </span>
+                </p>
+
+                <p>
+                    <span class="s3">3-5 17:00</span>
+                    <span class="s4">
+          <img src="https://itea-cdn.qq.com/file/ingame/smoba/php6IXfjE3842378161635413068.png" >
+          <span>南京Hero久竞</span>
+        </span>
+                    <span class="s5">VS</span>
+                    <span class="s4">
+          <img src="https://itea-cdn.qq.com/file/ingame/smoba/phpkkakX9426830431635412801.png" >
+        <span>成都AG超玩会</span>
+        </span>
+                </p>
+                <p>
+                    <span class="s3">3-5 20:00</span>
+                    <span class="s4">
+          <img src="https://itea-cdn.qq.com/file/ingame/smoba/phpmV4rxh12030527951635413493.png" >
+          <span>西安WE</span>
+        </span>
+                    <span class="s5">VS</span>
+                    <span class="s4">
+          <img src="https://itea-cdn.qq.com/file/ingame/smoba/php23Al6j7725584461635411173.png" >
+        <span>杭州LGD大鹅</span>
+        </span>
+                </p>
+            </div>
+            <div id="m3_r_b_div">
+                <img src="	https://ossweb-img.qq.com/upload/webplat/info/yxzj/20220128/142511473786189.jpg">
+            </div></div></div>
+    <div id="b_div">
+        <div id="b_t_div">
+            <img src="5.jpg" >
+        </div>
+        <div id="b_b_div">
+            <div id="b_b_l_div">
+                <ul>
+                    <li>抵制不良游戏</li>
+                    <li>拒绝盗版游戏</li>
+                    <li>注意自我保护</li>
+                    <li>谨防受骗上当</li>
+                    <li>适度游戏益脑</li>
+                    <li>沉迷游戏伤身</li>
+                    <li>合理安排时间</li>
+                    <li>享受健康生活</li>
+                </ul>
+                <p>《王者荣耀》全部背景故事发生于架空世界“王者大陆”中。相关人物、地理、事件均为艺术创<br>
+                    作，并非正史。若因观看王者故事对相关历史人物产生兴趣，建议查阅正史记载。</p>
+            </div>
+            <div id="b_b_r_div">
+                <div id="b_b_r_t_div">
+                    <p>腾讯互动娱乐|服务条款|隐私保护指引|儿童隐私保护指引|腾讯游戏招聘|腾讯游戏客服|游戏列表|广告服务及商务合作</p>
+                    <p>COPYRIGHT © 1998 - 2022 TENCENT. ALL RIGHTS RESERVED. 腾讯公司版权所有 网络游戏行业防沉迷自律公约</p>
+                </div>
+                <div id="b_b_r_b_div">
+                    <img id="img_2" src="https://game.gtimg.cn/images/js/2018foot/logo/gswj.png"><p>工商网监电子标识 |粤网文[2020]3396-195号|（署）网出证（粤）字第054号</p>
+                    <img id="img_3" src="https://game.gtimg.cn/images/js/2018foot/logo/icplogo.png"><p>文网游备字[2016]M-CSG 0059 号|新广出审[2017] 6712号|ISBN 978-7-7979-8408-9</p>
+                    <span>仿王者荣耀制作,制作人:达内郑州文化路中心:肖行</span>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+</html>

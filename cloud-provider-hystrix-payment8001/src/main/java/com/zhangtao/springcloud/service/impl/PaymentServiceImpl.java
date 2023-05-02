@@ -1,5 +1,6 @@
 package com.zhangtao.springcloud.service.impl;
 
+
 import cn.hutool.core.util.IdUtil;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixCommand;
 import com.netflix.hystrix.contrib.javanica.annotation.HystrixProperty;
@@ -55,6 +56,7 @@ public class PaymentServiceImpl implements PaymentService {
     }
 
     //服务熔断
+    @Override
     @HystrixCommand(fallbackMethod = "paymentCircuitBreaker_fallback",commandProperties = {
             @HystrixProperty(name = "circuitBreaker.enabled",value = "true"),//是否开启断路器
             @HystrixProperty(name = "circuitBreaker.requestVolumeThreshold",value = "10"), //请求失败次数

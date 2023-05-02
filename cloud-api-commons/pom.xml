@@ -14,6 +14,9 @@
     <modules>
         <module>common-swagger</module>
         <module>common-snowflakes</module>
+        <module>common-factoryMode</module>
+        <module>common-suanFaMode</module>
+        <module>commom-stream</module>
     </modules>
 
     <dependencies>
@@ -28,12 +31,6 @@
             <groupId>org.projectlombok</groupId>
             <artifactId>lombok</artifactId>
             <optional>true</optional>
-        </dependency>
-        <!--一个 Java 基础工具类，对文件、流、加密解密、转码、正则、线程、XML等JDK方法进行封装，组成各种Util工具类 -->
-        <dependency>
-            <groupId>cn.hutool</groupId>
-            <artifactId>hutool-all</artifactId>
-            <version>4.5.18</version>
         </dependency>
         <dependency>
             <groupId>io.swagger</groupId>

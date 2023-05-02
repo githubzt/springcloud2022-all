@@ -22,7 +22,7 @@ public class LockSupportDemo {
         //Lock Condition 正常唤醒案例
         //m1_normalCondtionSignal();
         //Lock Condition 异常唤醒案例 去掉锁
-        //m2_unNormalCondtionSignal();
+        m2_unNormalCondtionSignal();
         //Lock Condition 异常唤醒案例 先Signal() 后 await() 一直等待
         //m3_unNormalCondtionSignal();
 

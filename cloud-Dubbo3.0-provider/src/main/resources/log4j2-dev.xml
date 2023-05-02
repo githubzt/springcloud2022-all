@@ -1,0 +1,141 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Configuration status="WARN" monitorInterval="600">
+
+    <Properties>
+        <!--
+                <property name="LOG_HOME" value="${sys:user.home}/home/flep/logs"/>  C:\Users\zhang  测试最好指定
+        -->
+    <!--<property name="LOG_HOME" value="/home/test/doc/log"/>-->
+        <property name="LOG_HOME" value="D:\doc\log"/>
+        <property name="APP_CODE" value="file_log"/>
+        <property name="LOG_LEVEL_PATTERN" value="%-5p"/>
+        <property name="INSTANCE_INFO_PATTERN" value="${hostName} | ${sys:user.name}"/>
+        <property name="CODE_INFO_PATTERN" value="%pid:%F:%L"/>
+        <property name="LOG_DATEFORMAT_PATTERN" value="yyyy-MM-dd HH:mm:ss.SSS"/>
+        <property name="METRIC_LOG_DATEFORMAT_PATTERN" value="yyyy-MM-dd HH:mm:ss.SSS"/>
+        <property name="APP_LOG_PATTERN" value="%d{${LOG_DATEFORMAT_PATTERN}} | ${LOG_LEVEL_PATTERN} | %X{TRACE_ID}  | %t | ${CODE_INFO_PATTERN} | [%X{seq}] - %m%n"/>
+        <property name="LOG_PATTERN" value="%d{${LOG_DATEFORMAT_PATTERN}} | %X{TRACE_ID} | ${LOG_LEVEL_PATTERN} | ${INSTANCE_INFO_PATTERN} | FEIA | FLEP-INAPP | %t | ${CODE_INFO_PATTERN} | %m%n"/>
+        <property name="ALERT_LOG_PATTERN" value="%d{${LOG_DATEFORMAT_PATTERN}} $${ctx:traceId:-} | ${INSTANCE_INFO_PATTERN} | [%X{seq}] - %m%n"/>
+        <property name="METRIC_LOG_PATTERN" value="%d{${METRIC_LOG_DATEFORMAT_PATTERN}}%m%n"/>
+    </Properties>
+
+    <Appenders>
+        <!--控制台输出的相关配置-->
+        <Console name="Console" target="SYSTEM_OUT" follow="true">
+            <PatternLayout pattern="%d{${LOG_DATEFORMAT_PATTERN}} | ${LOG_LEVEL_PATTERN} | %t | %c:%L | [%X{seq}] - %m%n" />
+        </Console>
+
+
+        <!--打印所有的info及以下的级别的信息，每次超过size,则这size大小的日志会自动存入年份-月份创建的文件夹下进行压缩存档-->
+        <RollingFile name="EventLogFile" fileName="${LOG_HOME}/event.log" immediateFlush="true"
+                     filePattern="${LOG_HOME}/%d{yyyyMMdd}/event.log.%i">
+            <!--            <thresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>-->
+            <PatternLayout>
+                <Pattern>${LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="50MB"/>
+            </Policies>
+            <!--保留最近30天的日志-->
+            <DefaultRolloverStrategy>
+                <Delete basePath="${LOG_HOME}" maxDepth = "2">
+                    <IfFileName glob = "*/event.log.*" />
+                    <IfLastModified age = "30d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+        <RollingFile name="AppLogFile" fileName="${LOG_HOME}/app.log" immediateFlush="true"
+                     filePattern="${LOG_HOME}/%d{yyyyMMdd}/app.log.%i">
+            <!--            <thresholdFilter level="info" onMatch="ACCEPT" onMismatch="DENY"/>-->
+            <PatternLayout>
+                <Pattern>${APP_LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="50MB"/>
+            </Policies>
+            <!--保留最近30天的日志-->
+            <DefaultRolloverStrategy>
+                <Delete basePath="${LOG_HOME}" maxDepth = "2">
+                    <IfFileName glob = "*/app.log.*" />
+                    <IfLastModified age = "30d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+        <RollingFile name="AlertLogFile" fileName="${LOG_HOME}/alert.log" immediateFlush="true"
+                     filePattern="${LOG_HOME}/%d{yyyyMMdd}/alert.log.%i">
+            <thresholdFilter level="warn" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout>
+                <Pattern>${ALERT_LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="50MB"/>
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${LOG_HOME}" maxDepth = "2">
+                    <IfFileName glob = "*/alert.log.*" />
+                    <IfLastModified age = "30d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+        <RollingFile name="ErrorLogFile" fileName="${LOG_HOME}/error.log" immediateFlush="true"
+                     filePattern="${LOG_HOME}/%d{yyyyMMdd}/error.log.%i">
+            <thresholdFilter level="error" onMatch="ACCEPT" onMismatch="DENY"/>
+            <PatternLayout>
+                <Pattern>${APP_LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="50MB"/>
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${LOG_HOME}" maxDepth = "2">
+                    <IfFileName glob = "*/error.log.*" />
+                    <IfLastModified age = "30d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+        <RollingFile name="FlepMetricLogFile" fileName="${LOG_HOME}/metric.log" immediateFlush="true"
+                     filePattern="${LOG_HOME}/%d{yyyyMMdd}/metric.log.%i">
+            <PatternLayout> <!-- 日志格式 -->
+                <Pattern>${METRIC_LOG_PATTERN}</Pattern>
+            </PatternLayout>
+            <Policies>  <!-- 每隔一天转存 -->
+                <TimeBasedTriggeringPolicy interval="1" modulate="true"/>
+                <SizeBasedTriggeringPolicy size="50MB"/>  <!-- 文件大小 -->
+            </Policies>
+            <DefaultRolloverStrategy>
+                <Delete basePath="${LOG_HOME}" maxDepth = "2">
+                    <IfFileName glob = "*/metric.log.*" />
+                    <IfLastModified age = "30d" />
+                </Delete>
+            </DefaultRolloverStrategy>
+        </RollingFile>
+    </Appenders>
+
+
+    <!--然后定义logger，只有定义了logger并引入的appender，appender才会生效-->
+    <Loggers>
+        <Root level="INFO">
+            <AppenderRef ref="Console" />
+            <AppenderRef ref="AppLogFile" />
+            <AppenderRef ref="AlertLogFile" />
+            <AppenderRef ref="ErrorLogFile" />
+        </Root>
+        <AsyncLogger name="io.micrometer.core.instrument.logging.LoggingMeterRegistry" level="ALL" additivity="false">
+            <AppenderRef ref="FlepMetricLogFile" />
+        </AsyncLogger>
+        <AsyncLogger name="event" level="ALL" additivity="false">
+            <AppenderRef ref="EventLogFile" />
+        </AsyncLogger>
+        <!--节点用来单独指定日志的形式，比如要为指定包下的class指定不同的日志级别等-->
+        <logger name="com.apache.ibatis" level="TRACE"/>
+        <logger name="java.sql.Connection" level="DEBUG"/>
+        <logger name="java.sql.Statement" level="DEBUG"/>
+        <logger name="java.sql.PreparedStatement" level="DEBUG"/>
+        <!--<logger name="com.zhangtao.springcloud" level="DEBUG"/>-->
+    </Loggers>
+
+</Configuration>

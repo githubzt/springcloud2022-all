@@ -23,7 +23,7 @@ public class MyLb implements LoadBalancer{
         do{
             current = this.automicInteger.get();
             next = current >= 2147483647 ? 0 :current+1;
-        }while (!this.automicInteger.compareAndSet(current,next)); //自选锁 current 期望值  next 替换值
+        }while (!this.automicInteger.compareAndSet(current,next)); //自旋锁 current 期望值  next 替换值
         System.out.println("************第几次访问次数next:"+next);
         return next;
     }

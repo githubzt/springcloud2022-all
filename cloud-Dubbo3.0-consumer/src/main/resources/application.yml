@@ -1,0 +1,24 @@
+server:
+  port: 10005
+
+spring:
+  application:
+    name: nocas-dubbo-consumer  # Dubbo 应用名称
+dubbo:
+  application:
+    name: nocas-dubbo-consumer
+    qos-enable: false # 禁用QOS同一台机器可能会有端口冲突现象
+    qos-accept-foreign-ip: false
+  registry:
+    address: nacos://192.168.205.129:8848  #就能轻松地桥接到所有原生Spring Cloud注册中心，包括：Nacos,Eureka,Zookeeper,Consul。
+    parameters:
+      namespace: dev
+    use-as-metadata-center: false
+    use-as-config-center: false
+    group: DUBBO_GROUP
+  consumer:
+    timeout: 3000  # 服务连接超时时间
+    check: false   # 取消服务启动检查
+
+logging:
+  config: classpath:log4j2-dev.xml

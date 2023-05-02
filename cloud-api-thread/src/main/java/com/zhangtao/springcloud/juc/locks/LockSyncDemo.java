@@ -24,6 +24,7 @@ public class LockSyncDemo {
     }
 
     public static void main(String[] args) {
-
+        LockSyncDemo syncDemo = new LockSyncDemo();
+        syncDemo.m1();
     }
 }

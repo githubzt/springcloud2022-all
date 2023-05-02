@@ -25,16 +25,19 @@ import java.util.List;
 @RestController
 @Slf4j
 public class OrderController {
-
-    //private static final String PAYMENT_URL = "http://localhost:8001"; //单机版
-    private static final String PAYMENT_URL = "http://CLOUD-PROVIDER-SERVICE"; //微服务
+    //单机版
+    //private static final String PAYMENT_URL = "http://localhost:8001";
+    //微服务
+    private static final String PAYMENT_URL = "http://CLOUD-PROVIDER-SERVICE";
 
     @Autowired
     private RestTemplate restTemplate;
+    /**自己写的负载均衡**/
     @Autowired
-    private LoadBalancer loadBalancer;  //自己写的负载均衡
+    private LoadBalancer loadBalancer;
+    /**服务发现**/
     @Autowired
-    private DiscoveryClient discoveryClient; //服务发现
+    private DiscoveryClient discoveryClient;
 
     @GetMapping(value = "/consumer/payment/create")
     public CommonResult<Payment> create(Payment payment){

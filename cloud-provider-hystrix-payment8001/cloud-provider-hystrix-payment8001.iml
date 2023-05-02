@@ -26,7 +26,6 @@
     <orderEntry type="inheritedJdk" />
     <orderEntry type="sourceFolder" forTests="false" />
     <orderEntry type="module" module-name="cloud-api-commons" />
-    <orderEntry type="library" name="Maven: cn.hutool:hutool-all:4.5.18" level="project" />
     <orderEntry type="library" name="Maven: io.swagger:swagger-annotations:1.5.22" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter-netflix-eureka-client:2.2.9.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework.cloud:spring-cloud-starter:2.2.9.RELEASE" level="project" />
@@ -198,5 +197,6 @@
     <orderEntry type="library" name="Maven: org.springframework:spring-jcl:5.2.15.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.springframework:spring-test:5.2.15.RELEASE" level="project" />
     <orderEntry type="library" name="Maven: org.xmlunit:xmlunit-core:2.7.0" level="project" />
+    <orderEntry type="library" name="Maven: cn.hutool:hutool-all:4.5.18" level="project" />
   </component>
 </module>

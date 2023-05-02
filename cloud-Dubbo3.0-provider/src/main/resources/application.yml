@@ -1,0 +1,29 @@
+server:
+  port: 10004
+
+spring:
+  application:
+    name: nocas-dubbo-provider  # Dubbo 应用名称
+
+dubbo:
+  application:
+    name: nocas-dubbo-provider
+  qos-enable: false # 禁用QOS同一台机器可能会有端口冲突现象
+  qos-accept-foreign-ip: false
+  protocol: #配置提供的协议及端口
+    name: tri #dubbo 协议
+    port: -1  #dubbo协议端口（ -1 表示自增端口，从 20880 开始）
+  scan: # 扫描rpc接口定义包
+    base-packages: com.zhangtao.springcloud.service
+  registry:
+    address: nacos://192.168.205.129:8848  #就能轻松地桥接到所有原生Spring Cloud注册中心，包括：Nacos-Eureka-Zookeeper-Consul。
+    protocol: tri
+    timeout: 3000
+    parameters:
+      namespace: dev
+    group: DUBBO_GROUP
+
+logging:
+  config: classpath:log4j2-dev.xml
+
+
